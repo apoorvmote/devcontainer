@@ -1,0 +1,39 @@
+{
+	"name": "CDK",
+	"build": {
+		"dockerfile": "Dockerfile",
+		// Update 'VARIANT' to pick an Ubuntu version: focal, bionic
+		"args": { "VARIANT": "focal" }
+	},
+
+	// Set *default* container specific settings.json values on container create.
+	"settings": { 
+		"terminal.integrated.shell.linux": "/bin/bash"
+	},
+
+	// Add the IDs of extensions you want installed when the container is created.
+	"extensions": [
+		"dbaeumer.vscode-eslint",
+		"sodatea.velocity",
+		"wix.vscode-import-cost",
+		"steoates.autoimport",
+		"streetsidesoftware.code-spell-checker",
+		"vscode-icons-team.vscode-icons",
+		"golang.go",
+		"kumar-harsh.graphql-for-vscode"
+	],
+
+	// Use 'forwardPorts' to make a list of ports inside the container available locally.
+	// "forwardPorts": [],
+
+	// Use 'postCreateCommand' to run commands after the container is created.
+	// "postCreateCommand": "uname -a",
+
+	"runArgs": [
+		"-v", "${localEnv:HOME}/.ssh:/home/vscode/.ssh:ro",
+		"-v", "${localEnv:HOME}/.aws:/home/vscode/.aws:ro"
+	],
+
+	// Comment out connect as root instead. More info: https://aka.ms/vscode-remote/containers/non-root.
+	"remoteUser": "vscode"
+}

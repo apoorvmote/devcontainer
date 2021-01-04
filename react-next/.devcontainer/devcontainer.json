@@ -1,0 +1,42 @@
+// For format details, see https://aka.ms/devcontainer.json. For config options, see the README at:
+// https://github.com/microsoft/vscode-dev-containers/tree/v0.154.0/containers/ubuntu
+{
+	"name": "React/NextJS",
+	"build": {
+		"dockerfile": "Dockerfile",
+		// Update 'VARIANT' to pick an Ubuntu version: focal, bionic
+		"args": { "VARIANT": "focal" }
+	},
+
+	"runArgs": [
+		"-v", "${localEnv:HOME}/.ssh:/home/vscode/.ssh:ro",
+		"-v", "${localEnv:HOME}/.aws:/home/vscode/.aws:ro"
+	],
+
+	// Set *default* container specific settings.json values on container create.
+	"settings": { 
+		"terminal.integrated.shell.linux": "/bin/bash"
+	},
+
+	// Add the IDs of extensions you want installed when the container is created.
+	"extensions": [
+		"dbaeumer.vscode-eslint",
+		"wix.vscode-import-cost",
+		"steoates.autoimport",
+		"streetsidesoftware.code-spell-checker",
+		"vscode-icons-team.vscode-icons",
+		"blanu.vscode-styled-jsx",
+		"naumovs.color-highlight",
+		"anseki.vscode-color",
+		"kumar-harsh.graphql-for-vscode"
+	],
+
+	// Use 'forwardPorts' to make a list of ports inside the container available locally.
+	"forwardPorts": [3000],
+
+	// Use 'postCreateCommand' to run commands after the container is created.
+	// "postCreateCommand": "uname -a",
+
+	// Comment out connect as root instead. More info: https://aka.ms/vscode-remote/containers/non-root.
+	"remoteUser": "vscode"
+}
