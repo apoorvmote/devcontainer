@@ -6,14 +6,14 @@
 
 Click title above for video tutorial
 
-## AWS CDK
+## [AWS CDK](https://github.com/apoorvmote/devcontainer/tree/main/cdk)
 
 For building backend with CDK
 
-## Hugo
+## [Hugo](https://github.com/apoorvmote/devcontainer/tree/main/hugo)
 
 For static site generator Hugo
 
-## React or NextJS
+## [React or NextJS](https://github.com/apoorvmote/devcontainer/tree/main/react-next)
 
 For frontend react or next js.
