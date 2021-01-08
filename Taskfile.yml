@@ -3,7 +3,7 @@
 version: '3'
 
 vars:
-  COMMIT_MESSAGE: updated task version
+  COMMIT_MESSAGE: added cdk-lambda-local
 
 tasks:
   default:
