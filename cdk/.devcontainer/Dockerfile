@@ -17,7 +17,7 @@ RUN sudo mkdir -p /usr/local/lib/nodejs/ \
     && sudo tar -xf node-v${NODE_VERSION}-linux-x64.tar.xz -C /usr/local/lib/nodejs/ --strip-components=1 \
     && rm node-v${NODE_VERSION}-linux-x64.tar.xz
 
-ENV TASK_VERSION=3.2.1
+ENV TASK_VERSION=3.2.2
 
 RUN wget https://github.com/go-task/task/releases/download/v${TASK_VERSION}/task_linux_amd64.deb \
     && dpkg -i task_linux_amd64.deb \
