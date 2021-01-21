@@ -8,8 +8,9 @@ ARG UPGRADE_PACKAGES="false"
 # [Option] Enable non-root Docker access in container
 ARG ENABLE_NONROOT_DOCKER="true"
 
-# Install needed packages and setup non-root user. Use a separate RUN statement to add your own dependencies.
-ARG USERNAME=vscode
+# Install needed packages and setup non-root user. Use a separate RUN statement to add your
+# own dependencies. A user of "automatic" attempts to reuse an user ID if one already exists.
+ARG USERNAME=automatic
 ARG USER_UID=1000
 ARG USER_GID=$USER_UID
 COPY library-scripts/*.sh /tmp/library-scripts/
@@ -22,7 +23,9 @@ RUN apt-get update \
     
 VOLUME [ "/var/lib/docker" ]
 
-# You may add parameters to ENTRYPOINT, which will execute after docker-init is finished
+# Setting the ENTRYPOINT to docker-init.sh will start up the Docker Engine 
+# inside the container "overrideCommand": false is set in devcontainer.json. 
+# The script will also execute CMD if you need to alter startup behaviors.
 ENTRYPOINT [ "/usr/local/share/docker-init.sh" ]
 CMD [ "sleep", "infinity" ]
 
@@ -46,6 +49,16 @@ ENV TASK_VERSION=3.2.2
 RUN wget https://github.com/go-task/task/releases/download/v${TASK_VERSION}/task_linux_amd64.deb \
     && dpkg -i task_linux_amd64.deb \
     && rm task_linux_amd64.deb
+
+
+ENV PATH="$PATH:/usr/local/go/bin"
+
+ENV GO_VERSION=1.15.7
+
+RUN wget https://golang.org/dl/go${GO_VERSION}.linux-amd64.tar.gz \
+    && tar -xf go${GO_VERSION}.linux-amd64.tar.gz \
+    && sudo mv go/ /usr/local/ \
+    && rm go${GO_VERSION}.linux-amd64.tar.gz
 
 RUN curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip" \
     && unzip awscliv2.zip \

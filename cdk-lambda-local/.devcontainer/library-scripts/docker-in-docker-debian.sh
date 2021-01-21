@@ -112,6 +112,7 @@ tee /usr/local/share/docker-init.sh > /dev/null \
 # Copyright (c) Microsoft Corporation. All rights reserved.
 # Licensed under the MIT License. See https://go.microsoft.com/fwlink/?linkid=2090316 for license information.
 #-------------------------------------------------------------------------------------------------------------
+
 sudoIf()
 {
     if [ "\$(id -u)" -ne 0 ]; then
@@ -120,24 +121,31 @@ sudoIf()
         "\$@"
     fi
 }
+
 # explicitly remove dockerd and containerd PID file to ensure that it can start properly if it was stopped uncleanly
 # ie: docker kill <ID>
 find /run /var/run -iname 'docker*.pid' -delete || :
 find /run /var/run -iname 'container*.pid' -delete || :
+
 set -e
+
 ## Dind wrapper script from docker team
 # Maintained: https://github.com/moby/moby/blob/master/hack/dind
+
 export container=docker
+
 if [ -d /sys/kernel/security ] && ! sudoIf mountpoint -q /sys/kernel/security; then
 	sudoIf mount -t securityfs none /sys/kernel/security || {
 		echo >&2 'Could not mount /sys/kernel/security.'
 		echo >&2 'AppArmor detection and --privileged mode might break.'
 	}
 fi
+
 # Mount /tmp (conditionally)
 if ! sudoIf mountpoint -q /tmp; then
 	sudoIf mount -t tmpfs none /tmp
 fi
+
 # cgroup v2: enable nesting
 if [ -f /sys/fs/cgroup/cgroup.controllers ]; then
 	# move the init process (PID 1) from the root group to the /init group,
@@ -149,9 +157,12 @@ if [ -f /sys/fs/cgroup/cgroup.controllers ]; then
 		> /sys/fs/cgroup/cgroup.subtree_control
 fi
 ## Dind wrapper over.
+
 # Start docker/moby engine
 ( sudoIf dockerd > /tmp/dockerd.log 2>&1 ) &
+
 set +e
+
 # Execute whatever commands were passed in (if any). This allows us 
 # to set this script to ENTRYPOINT while still executing the default CMD.
 exec "\$@"

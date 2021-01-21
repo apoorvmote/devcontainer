@@ -195,10 +195,13 @@ EOF
 # code shim, it fallbacks to code-insiders if code is not available
 cat << 'EOF' > /usr/local/bin/code
 #!/bin/sh
+
 get_in_path_except_current() {
   which -a "$1" | grep -v "$0" | head -1
 }
+
 code="$(get_in_path_except_current code)"
+
 if [ -n "$code" ]; then
   exec "$code" "$@"
 elif [ "$(command -v code-insiders)" ]; then
@@ -235,6 +238,7 @@ prompt() {
         fi
     fi
 }
+
 SCM_THEME_PROMPT_PREFIX="\${reset_color}\${cyan}(\${bold_red}"
 SCM_THEME_PROMPT_SUFFIX="\${reset_color} "
 SCM_THEME_PROMPT_DIRTY=" \${bold_yellow}✗\${reset_color}\${cyan})"
