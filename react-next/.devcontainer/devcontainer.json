@@ -25,10 +25,11 @@
 		"steoates.autoimport",
 		"streetsidesoftware.code-spell-checker",
 		"vscode-icons-team.vscode-icons",
-		"blanu.vscode-styled-jsx",
 		"naumovs.color-highlight",
 		"anseki.vscode-color",
-		"kumar-harsh.graphql-for-vscode"
+		"kumar-harsh.graphql-for-vscode",
+		"heybourn.headwind",
+		"bradlc.vscode-tailwindcss"
 	],
 
 	// Use 'forwardPorts' to make a list of ports inside the container available locally.

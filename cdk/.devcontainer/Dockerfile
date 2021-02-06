@@ -25,7 +25,7 @@ RUN wget https://github.com/go-task/task/releases/download/v${TASK_VERSION}/task
 
 ENV PATH="$PATH:/usr/local/go/bin"
 
-ENV GO_VERSION=1.15.7
+ENV GO_VERSION=1.15.8
 
 RUN wget https://golang.org/dl/go${GO_VERSION}.linux-amd64.tar.gz \
     && tar -xf go${GO_VERSION}.linux-amd64.tar.gz \

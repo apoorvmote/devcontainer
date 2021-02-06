@@ -3,12 +3,12 @@
 	"dockerFile": "Dockerfile",
 	"runArgs": ["--init", "--privileged"],
 	"overrideCommand": false,
-
+	
 	"mounts": [ 
 		"source=${localEnv:HOME}/.aws,target=/home/vscode/.aws,type=bind,consistency=cached",
 		"source=${localEnv:HOME}/.ssh,target=/home/vscode/.ssh,type=bind,consistency=cached",
 	],
-	
+
 	// Use this environment variable if you need to bind mount your local source code into a new container.
 	// Set *default* container specific settings.json values on container create.
 	"settings": { 
@@ -35,5 +35,5 @@
 	// "postCreateCommand": "docker --version",
 
 	// Comment out connect as root instead. More info: https://aka.ms/vscode-remote/containers/non-root.
-	"remoteUser": "1000"
+	"remoteUser": "vscode"
 }

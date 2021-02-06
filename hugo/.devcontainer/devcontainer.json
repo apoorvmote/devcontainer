@@ -21,7 +21,9 @@
 		"vscode-icons-team.vscode-icons",
 		"ritwickdey.liveserver",
 		"golang.go",
-		"davidanson.vscode-markdownlint"
+		"davidanson.vscode-markdownlint",
+		"heybourn.headwind",
+		"bradlc.vscode-tailwindcss"
 	],
 
 	// Use 'forwardPorts' to make a list of ports inside the container available locally.

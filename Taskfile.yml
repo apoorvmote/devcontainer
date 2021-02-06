@@ -3,7 +3,7 @@
 version: '3'
 
 vars:
-  COMMIT_MESSAGE: updated docker in docker
+  COMMIT_MESSAGE: updated golang version
 
 tasks:
   default:
