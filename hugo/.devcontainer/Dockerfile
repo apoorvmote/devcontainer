@@ -11,7 +11,7 @@ RUN apt-get update && export DEBIAN_FRONTEND=noninteractive \
 
 ENV PATH="$PATH:/usr/local/lib/nodejs/bin:\$PATH"
 
-ENV NODE_VERSION=14.15.4
+ENV NODE_VERSION=14.15.5
 
 RUN mkdir -p /usr/local/lib/nodejs/ \
     && wget https://nodejs.org/dist/v${NODE_VERSION}/node-v${NODE_VERSION}-linux-x64.tar.xz \
