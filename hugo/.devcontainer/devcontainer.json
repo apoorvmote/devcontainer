@@ -19,11 +19,11 @@
 		"budparr.language-hugo-vscode",
 		"kisstkondoros.vscode-gutter-preview",
 		"vscode-icons-team.vscode-icons",
-		"ritwickdey.liveserver",
 		"golang.go",
 		"davidanson.vscode-markdownlint",
 		"heybourn.headwind",
-		"bradlc.vscode-tailwindcss"
+		"bradlc.vscode-tailwindcss",
+		"esbenp.prettier-vscode"
 	],
 
 	// Use 'forwardPorts' to make a list of ports inside the container available locally.

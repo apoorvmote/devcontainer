@@ -6,7 +6,7 @@ FROM mcr.microsoft.com/vscode/devcontainers/base:0-${VARIANT}
 
 # [Optional] Uncomment this section to install additional OS packages.
 RUN apt-get update && export DEBIAN_FRONTEND=noninteractive \
-    && apt-get -y install --no-install-recommends xz-utils 
+    && apt-get -y install --no-install-recommends xz-utils xsel
     #default-jre
 
 ENV PATH="$PATH:/usr/local/lib/nodejs/bin:\$PATH"
@@ -26,7 +26,7 @@ RUN wget https://github.com/go-task/task/releases/download/v${TASK_VERSION}/task
 
 ENV PATH="$PATH:/usr/local/go/bin"
 
-ENV GO_VERSION=1.15.8
+ENV GO_VERSION=1.16
 
 RUN wget https://golang.org/dl/go${GO_VERSION}.linux-amd64.tar.gz \
     && tar -xf go${GO_VERSION}.linux-amd64.tar.gz \
@@ -43,3 +43,5 @@ ENV HUGO_VERSION=0.80.0
 RUN wget https://github.com/gohugoio/hugo/releases/download/v${HUGO_VERSION}/hugo_extended_${HUGO_VERSION}_Linux-64bit.deb \
     && dpkg -i hugo_extended_${HUGO_VERSION}_Linux-64bit.deb \
     && rm hugo_extended_${HUGO_VERSION}_Linux-64bit.deb
+
+RUN npm install -g serve gulp-cli
