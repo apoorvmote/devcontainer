@@ -2,7 +2,7 @@
 
 [![MIT License](https://badgen.now.sh/badge/License/MIT/blue)](https://github.com/apoorvmote/devcontainer/blob/master/License.md)
 
-## [Learn how to develop inside docker container with VS Code](https://apoorv.blog/posts/developing-in-container-with-vs-code.html) 
+## [Learn how to develop inside docker container with VS Code](https://apoorv.blog/develop-inside-container-vscode/) 
 
 Click title above for video tutorial
 
