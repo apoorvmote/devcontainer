@@ -46,7 +46,7 @@ RUN sudo mkdir -p /usr/local/lib/nodejs/ \
 
 RUN npm install -g aws-cdk
 
-ENV TASK_VERSION=3.2.2
+ENV TASK_VERSION=3.3.0
 
 RUN wget https://github.com/go-task/task/releases/download/v${TASK_VERSION}/task_linux_amd64.deb \
     && dpkg -i task_linux_amd64.deb \
