@@ -3,7 +3,7 @@
 version: '3'
 
 vars:
-  COMMIT_MESSAGE: updated hugo version 
+  COMMIT_MESSAGE: updated go version 
 
 tasks:
   default:
