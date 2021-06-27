@@ -11,14 +11,14 @@ RUN apt-get update && export DEBIAN_FRONTEND=noninteractive \
 
 ENV PATH="$PATH:/usr/local/lib/nodejs/bin:\$PATH"
 
-ENV NODE_VERSION=14.17.0
+ENV NODE_VERSION=14.17.1
 
 RUN mkdir -p /usr/local/lib/nodejs/ \
     && wget https://nodejs.org/dist/v${NODE_VERSION}/node-v${NODE_VERSION}-linux-x64.tar.xz \
     && tar -xf node-v${NODE_VERSION}-linux-x64.tar.xz -C /usr/local/lib/nodejs/ --strip-components=1 \
     && rm node-v${NODE_VERSION}-linux-x64.tar.xz
     
-ENV TASK_VERSION=3.4.2
+ENV TASK_VERSION=3.4.3
 
 RUN wget https://github.com/go-task/task/releases/download/v${TASK_VERSION}/task_linux_amd64.deb \
     && dpkg -i task_linux_amd64.deb \
@@ -26,7 +26,7 @@ RUN wget https://github.com/go-task/task/releases/download/v${TASK_VERSION}/task
 
 ENV PATH="$PATH:/usr/local/go/bin"
 
-ENV GO_VERSION=1.16.4
+ENV GO_VERSION=1.16.5
 
 RUN wget https://golang.org/dl/go${GO_VERSION}.linux-amd64.tar.gz \
     && tar -xf go${GO_VERSION}.linux-amd64.tar.gz \
@@ -38,7 +38,7 @@ RUN curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2
     && sudo ./aws/install \
     && rm awscliv2.zip
 
-ENV HUGO_VERSION=0.83.0 
+ENV HUGO_VERSION=0.84.1 
 
 RUN wget https://github.com/gohugoio/hugo/releases/download/v${HUGO_VERSION}/hugo_extended_${HUGO_VERSION}_Linux-64bit.deb \
     && dpkg -i hugo_extended_${HUGO_VERSION}_Linux-64bit.deb \
