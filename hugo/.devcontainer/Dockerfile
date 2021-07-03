@@ -11,7 +11,7 @@ RUN apt-get update && export DEBIAN_FRONTEND=noninteractive \
 
 ENV PATH="$PATH:/usr/local/lib/nodejs/bin:\$PATH"
 
-ENV NODE_VERSION=14.17.1
+ENV NODE_VERSION=14.17.2
 
 RUN mkdir -p /usr/local/lib/nodejs/ \
     && wget https://nodejs.org/dist/v${NODE_VERSION}/node-v${NODE_VERSION}-linux-x64.tar.xz \
@@ -38,7 +38,7 @@ RUN curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2
     && sudo ./aws/install \
     && rm awscliv2.zip
 
-ENV HUGO_VERSION=0.84.1 
+ENV HUGO_VERSION=0.84.4 
 
 RUN wget https://github.com/gohugoio/hugo/releases/download/v${HUGO_VERSION}/hugo_extended_${HUGO_VERSION}_Linux-64bit.deb \
     && dpkg -i hugo_extended_${HUGO_VERSION}_Linux-64bit.deb \
