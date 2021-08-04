@@ -37,7 +37,7 @@ RUN apt-get update && export DEBIAN_FRONTEND=noninteractive \
 
 ENV PATH="$PATH:/usr/local/lib/nodejs/bin:\$PATH"
 
-ENV NODE_VERSION=14.17.3
+ENV NODE_VERSION=14.17.4
 
 RUN sudo mkdir -p /usr/local/lib/nodejs/ \
     && wget https://nodejs.org/dist/v${NODE_VERSION}/node-v${NODE_VERSION}-linux-x64.tar.xz \
@@ -46,7 +46,7 @@ RUN sudo mkdir -p /usr/local/lib/nodejs/ \
 
 RUN npm install -g aws-cdk
 
-ENV TASK_VERSION=3.5.0
+ENV TASK_VERSION=3.7.0
 
 RUN wget https://github.com/go-task/task/releases/download/v${TASK_VERSION}/task_linux_amd64.deb \
     && dpkg -i task_linux_amd64.deb \
@@ -55,7 +55,7 @@ RUN wget https://github.com/go-task/task/releases/download/v${TASK_VERSION}/task
 
 ENV PATH="$PATH:/usr/local/go/bin"
 
-ENV GO_VERSION=1.16.5
+ENV GO_VERSION=1.16.6
 
 RUN wget https://golang.org/dl/go${GO_VERSION}.linux-amd64.tar.gz \
     && tar -xf go${GO_VERSION}.linux-amd64.tar.gz \
