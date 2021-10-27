@@ -10,14 +10,14 @@ RUN apt-get update && export DEBIAN_FRONTEND=noninteractive \
 
 ENV PATH="$PATH:/usr/local/lib/nodejs/bin:\$PATH"
 
-ENV NODE_VERSION=14.17.6
+ENV NODE_VERSION=16.13.0
 
 RUN sudo mkdir -p /usr/local/lib/nodejs/ \
     && wget https://nodejs.org/dist/v${NODE_VERSION}/node-v${NODE_VERSION}-linux-x64.tar.xz \
     && sudo tar -xf node-v${NODE_VERSION}-linux-x64.tar.xz -C /usr/local/lib/nodejs/ --strip-components=1 \
     && rm node-v${NODE_VERSION}-linux-x64.tar.xz
 
-ENV TASK_VERSION=3.7.0
+ENV TASK_VERSION=3.9.0
 
 RUN wget https://github.com/go-task/task/releases/download/v${TASK_VERSION}/task_linux_amd64.deb \
     && dpkg -i task_linux_amd64.deb \
@@ -25,7 +25,7 @@ RUN wget https://github.com/go-task/task/releases/download/v${TASK_VERSION}/task
 
 ENV PATH="$PATH:/usr/local/go/bin"
 
-ENV GO_VERSION=1.17
+ENV GO_VERSION=1.17.2
 
 RUN wget https://golang.org/dl/go${GO_VERSION}.linux-amd64.tar.gz \
     && tar -xf go${GO_VERSION}.linux-amd64.tar.gz \
